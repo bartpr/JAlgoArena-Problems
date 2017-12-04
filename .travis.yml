@@ -9,17 +9,14 @@ before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
 before_deploy:
-- ./gradlew releaseZip
+- "./gradlew releaseZip"
 deploy:
-  provider: releases
+  provider: heroku
   api_key:
-    secure: B2umkw5FbcDWShouBagt5e1yhcZHmsGfYDiSCjonHop9S44WFzyOxGSLifGu4sPWl61zQJ88JEmT0G70E8YWdbldGiJdiZ6ow1/40dCClX4tiSImJiWpvLYbbs9hXzFe3ePvohGp0Sx6yA/adZwqUV9v+0fU9ZZpn8xk2IWRV0QIYYc5rWthSnS2G9SfB161W/URR/Cxtr1FU1Itgt5eJY40ndgVRCdwAux1USfU6e8sK8kCoedSu1dAy4PkjdH0J8xumHcWxEbtNhSb0NE4xZdV2UIEkKGduISOf9tJvuJxMTqyaJqxwI2gPTWRUexUZd6Sm4amRSl6KKM4ClwKSh9GBDockPwAK4X2WNUSarnWXY9m1IQzrdx/6+bYEnTxvnIg+38FxP3S1Npx4mLqDTHbqNjSnSsEcGDSKASJQAQJHc7drGqsqIgMaJd3p+lu3NxDtZjru5woU7xmieUTUWMlM2JSQRvX+7GDGOfpONstM13kgT2ZykJ7xdtRHm5rRZEGPjQpWkUggkoJ32Hc9Q6NKWBr+R7bbp9FHpj3LM8N3WZMzaan64FkoCR74dt7t+7lNVHoHH94BVbMj72xSezCmj6fQWr3+O5hIRR8g31KTT7cxg4gA6be80VM9COOYcSIzGEfZld9hHDdgXvudc5x8QNgI+w42Co1gZe+sGM=
-  file_glob: true
-  file: "./build/libs/JAlgoArena-Problems-*.zip"
-  skip_cleanup: true
+    secure: dce7jjtU7hxFkOY87qKFKzbSckiCSPFpgPEmEpmlyOGX5B23Lt1VQNUXBOUz/naC1mKTYS24FFUSld83eAZYHNQP1773YO3jJ1kScT1RhOXIsRCz0h8/1KWmpgTvHVK2Mi1vnH0vAOAwse5KWMYYbuHpCx6mfl6RatWRbBxll+/IYJ6AWjAZS6JtimMe+pBfKcbKhTNmopROwDbeXFeBlyb5mMB4vAsy+8rnK8r2ZkYOO09Ewi6qmz/KpKhIDDc8JE41orreey3CAFobiZWOJ7HGbKlVXHX0sKyg4BL13dNtcQ3egbHZo36E2f4ZrFmlVbCAlLwJYLJbNpGd4nkFqgDoi106h6b02p3S4mvWAQjdJUThDpDDOd7b4cst3IPZA1rC834VvQNy2UZcYyxSrAF9pvqSCTY7bLtMNNDItNDAAGsqMYGynTJVUv3baAoTKxPbx5udj6muCihSBKgy/pBZOcgD18GyLGCnWRCoghLl5qnjeTkKp75sq40VuVFLf7hKh/MbUqwR6LMy05W7hce0J5sB9qmb34HvRwhxGeKi3kx32zoJPpJ5s0OAPlwyxYDt3dsKlUFf/Rmdk7xv2L7mpr7gZVlsjIqAb9qHe4IWTdgMTt0Y/uZ8cKvijZx0bTfkDsoyOUWEVp2Hl1YJpGCsMecHOgOuCQY+7VDgoZg=
+  app: bprzybylski-jalgoarena-problem
   on:
     repo: bartpr/JAlgoArena-Problems
-    tags: true
